@@ -23,15 +23,15 @@
                             Cartórios participantes
                         </h3>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" id="seletor">
                         <!-- select dos estados -->
                         <div class="row">
                             <div class="col-2">
-                                <label >UF</label>
+                                <label>UF</label>
                                 <select class="form-select" aria-label="Default select example">
-                                    <option value="1">AC</option>
-                                    <option value="2">AL</option>
-                                    <option value="3">AP</option>
+                                    <option value="AC" >AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AP" selected>AP</option>
                                     <option value="4">AM</option>
                                     <option value="5">BA</option>
                                     <option value="6">CE</option>
@@ -56,13 +56,12 @@
                                     <option value="24">SP</option>
                                     <option value="25">SE</option>
                                     <option value="25">TO</option>
-
                                 </select>
                             </div>
                         </div>
                         </br>
                         <!-- TABELA -->
-                        <div class="row">
+                        <div class="row" >
                             <div class="col">
                                 <table class="table table-bordered">
                                     <thead>
@@ -100,6 +99,24 @@
         </div>
     </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <script src="cartorios.js"></script>
+    <script module>
+        
+       new Vue ({
+        data: {
+            AllCart: cartorios 
+            
+        }, 
+        methods: {
+            onSelect(cartorios) {
+                console.log(cartorios)
+            }
+        },
+
+       }).$mount("#seletor")
+
+    </script>
 </body>
 
 </html>
