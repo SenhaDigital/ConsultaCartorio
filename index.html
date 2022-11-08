@@ -28,34 +28,34 @@
                         <div class="row">
                             <div class="col-2">
                                 <label>UF</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option value="AC" >AC</option>
+                                <select v-model="CarSelected" class="form-select" aria-label="Default select example">
+                                    <option value="AC">AC</option>
                                     <option value="AL">AL</option>
-                                    <option value="AP" selected>AP</option>
-                                    <option value="4">AM</option>
-                                    <option value="5">BA</option>
-                                    <option value="6">CE</option>
-                                    <option value="7">DF</option>
-                                    <option value="8">ES</option>
-                                    <option value="9">GO</option>
-                                    <option value="10">MA</option>
-                                    <option value="11">MT</option>
-                                    <option value="12">MS</option>
-                                    <option value="13">MG</option>
-                                    <option value="14">PA</option>
-                                    <option value="15">PB</option>
-                                    <option value="16">PR</option>
-                                    <option value="17">PE</option>
-                                    <option value="18">PI</option>
-                                    <option value="19">RJ</option>
-                                    <option value="26">RN</option>
-                                    <option value="20">RS</option>
-                                    <option value="21">RO</option>
-                                    <option value="22">RR</option>
-                                    <option value="23">SC</option>
-                                    <option value="24">SP</option>
-                                    <option value="25">SE</option>
-                                    <option value="25">TO</option>
+                                    <option value="AP">AP</option>
+                                    <option value="AM">AM</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MT">MT</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MG">MG</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PR">PR</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RS">RS</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SP">SP</option>
+                                    <option value="SE">SE</option>
+                                    <option value="TO">TO</option>
                                 </select>
                             </div>
                         </div>
@@ -66,24 +66,22 @@
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Cartório</th>
-                                            <th scope="col">CNS</th>
-                                            <th scope="col">Telefone</th>
-                                            <th scope="col">E-mail</th>
-                                            <th scope="col">Oficial</th>
-                                            <th scope="col">Municípios atendidos</th>
-                                            <th scope="col">Formas de pgto aceitas</th>
+                                            <th>UF</th>
+                                            <th>Cartório</th>
+                                            <th>CNS</th>
+                                            <th>Telefone</th>
+                                            <th>E-mail</th>
+                                            <th>Municípios atendidos</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                            <td>EXEMPLE</td>
-                                            <td>EXEMPLE</td>
-                                            <td>EXEMPLE</td>
+                                    <tbody >
+                                        <tr v-for="item in cartorios" :value="item" :key="item.UF">
+                                            <td>{{item.UF}}</td>
+                                            <th>{{item.Cartorio}}</th>
+                                            <td>{{item.CNS}}</td>
+                                            <td>{{item.Fone}}</td>
+                                            <td>{{item.email}}</td>
+                                            <td>{{item.Cidade}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -105,16 +103,15 @@
         
        new Vue ({
         data: {
-            AllCart: cartorios 
-            
+            AllCart: cartorios, 
+            CarSelected: null
         }, 
-        methods: {
-            onSelect(cartorios) {
-                console.log(cartorios)
+        computed: {
+            cartorios() {
+                return this.AllCart.filter((el) => el.UF == this.CarSelected)
             }
-        },
-
-       }).$mount("#seletor")
+        }
+       }).$mount("#seletor");
 
     </script>
 </body>
