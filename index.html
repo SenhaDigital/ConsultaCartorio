@@ -9,7 +9,6 @@
     <title>ConsultaCartorio</title>
     <!-- BOOTSTRAP -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -75,7 +74,7 @@
                                         </tr>
                                     </thead>
                                     <tbody >
-                                        <tr v-for="item in cartorios" :value="item" :key="item.UF">
+                                        <tr v-for="item in cartorios" :value="item" :key="item.cartorios">
                                             <td>{{item.UF}}</td>
                                             <th>{{item.Cartorio}}</th>
                                             <td>{{item.CNS}}</td>
