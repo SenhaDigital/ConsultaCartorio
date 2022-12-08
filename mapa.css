@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-size: 1550px ;
+    background-size: 100% ;
     background-image: url("img/examples.jpg");
 }
 
@@ -24,7 +24,7 @@ body {
     display: table !important;
     margin: 50px auto;
     float: center;
-    filter:drop-shadow(0 0 10px black)
+    filter:drop-shadow(0 0 10px black);
 
 }
 
