@@ -21,7 +21,7 @@
                 <div class="col-12">
                     <div class="box-mapa">
                         <svg id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="460" height="465" style="display: inline;">
+                            width="460" height="465">
                             <g class="model">
 
                                 <desc>Brasil</desc>
@@ -321,27 +321,29 @@
                             </h3>
                         </div>
 
-
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Cartório</th>
-                                    <th>CNS</th>
-                                    <th>Telefone</th>
-                                    <th>Municípios atendidos</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="item in cartorios">
-                                    <th>{{item.Cartorio}}</th>
-                                    <td>{{item.CNS}}</td>
-                                    <td>{{item.Fone}}</td>
-                                    <td>{{item.Cidade}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Cartório</th>
+                                        <th>CNS</th>
+                                        <th>Telefone</th>
+                                        <th>Municípios atendidos</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="item in cartorios">
+                                        <th>{{item.Cartorio}}</th>
+                                        <td>{{item.CNS}}</td>
+                                        <td>{{item.Fone}}</td>
+                                        <td>{{item.Cidade}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                    <a id="botao" v-if="this.CartorioSelected" href="#mapInterativo" class="btn btn-primary float-right" role="button">Volte ao mapa</a>
+                    <a id="botao" v-if="this.CartorioSelected" href="#mapInterativo" class="btn btn-primary float-right"
+                        role="button">Volte ao mapa</a>
                 </div>
             </div>
 
