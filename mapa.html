@@ -314,7 +314,7 @@
 
 
                 <div class="col-12">
-                    <div id="listCartorio" class="card text-center" v-if="this.CartorioSelected">
+                    <div id="listCartorio" class="card text-center" v-if="condition">
                         <div class="card-header" style="background-color:#0d56a7;">
                             <h3>
                                 Cartórios participantes
@@ -342,7 +342,7 @@
                             </table>
                         </div>
                     </div>
-                    <a id="botao" v-if="this.CartorioSelected" href="#mapInterativo" class="btn btn-primary float-right"
+                    <a id="botao" v-if="condition" href="#mapInterativo" @click="volte()" class="btn btn-primary float-right"
                         role="button">Volte ao mapa</a>
                 </div>
             </div>
@@ -362,6 +362,7 @@
 
         new Vue({
             data: {
+                condition: false,
                 AllCartorios: cartorios,
                 CartorioSelected: null
 
@@ -374,6 +375,10 @@
             methods: {
                 mapa(estado) {
                     this.CartorioSelected = estado
+                    this.condition = true
+                },
+                volte(){
+                    this.condition = false
                 }
             }
         }).$mount("#mapInterativo")
